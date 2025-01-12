@@ -68,3 +68,5 @@ else
 {
     Console.WriteLine("Ваша страна - " + страна);
 }
+//test
+//Test2
