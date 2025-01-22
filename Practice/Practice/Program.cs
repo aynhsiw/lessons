@@ -1,72 +1,74 @@
-﻿Console.WriteLine("Задание 1\r\n");
-Console.WriteLine("Введите имя пользователя");
-var name = Console.ReadLine();
+﻿Console.WriteLine("Task 1: Sum from 0 to 100\r\n");
 
-if (name == "admin")
+int sum = 0;
+for (int a = 0; a <= 100; a++)
 {
-    Console.WriteLine("\r\nВы администратор");
+    sum += a;
 }
-else
-{
-    Console.WriteLine("\r\nЗдравствуйте " + name);
-}
+Console.WriteLine(sum + "\r\n");
 
-Console.WriteLine("Задание 2-3\r\n");
-Console.WriteLine("Напишите Ваш пол");
-var gender = Console.ReadLine();
-if (gender == "Мужчина")
+
+Console.WriteLine("Task 2: Line-by-line text\r\n");
+for (int stroke = 0; stroke < 100; stroke++)
 {
-    Console.WriteLine("Вы женат?");
-}
-else
-{
-    Console.WriteLine("Вы замужем?");
-}
-var answer = Console.ReadLine();
-if (gender == "Мужчина" && answer == "Да")
-{
-    Console.WriteLine("Вы женаты");
-}
-else if (gender == "Женщина" && answer == "Да")
-{
-    Console.WriteLine("Вы замужем");
-}
-else
-{
-    Console.WriteLine("Вы холосты");
+    Console.WriteLine("Строка " + stroke);
 }
 
-Console.WriteLine("Задание 4-5\r\n");
-Console.WriteLine("Сколько вам лет?");
-var question = Console.ReadLine();
-int age = Int32.Parse(question);
-if (age < 18)
+
+Console.WriteLine("Task 3: Numbers 10 to 20 and 40 to 50\r\n");
+
+for (int i = 0; i < 100; i++)
 {
-    Console.WriteLine("Доступ запрещен");
-}
-else
-{
-    Console.WriteLine("Доступ разрешен");
+    if (i >= 10 && i <= 20)
+    {
+        Console.WriteLine(i);
+    }
+
+    else if (i >= 40 && i <= 50)
+    {
+        Console.WriteLine(i);
+    }
 }
 
-Console.WriteLine("Задание 5\r\n");
-Console.WriteLine("В какой стране вы проживаете?");
-string страна = Console.ReadLine();
-if (страна == "РФ")
+
+Console.WriteLine("Task 3-A: Numbers 10 to 20 and 40 to 50\r\n");
+
+for (int a = 0; a < 100; a++)
 {
-    Console.WriteLine("Ваша страна - Российская Федерация");
+    if (a >= 10 && a <= 20)
+    {
+        Console.WriteLine(a);
+    }
 }
-else if (страна == "Китай")
+Console.WriteLine();
+for (int a = 0; a < 100; a++)
 {
-    Console.WriteLine("Ваша страна - Китай");
+    if (a >= 40 && a <= 50)
+    {
+        Console.WriteLine(a);
+    }
 }
-else if (страна == "Турция")
+
+
+Console.WriteLine("Task 4: Last added number\r\n");
+for (int i = 0; i <= 1000; i++)
 {
-    Console.WriteLine("Ваша страна - Турция");
+    sum += i;
+    if (sum > 100000)
+    {
+        Console.WriteLine("The last added number: " + i);
+        break;
+    }
 }
-else
+
+
+Console.WriteLine("Task 5: Even numbers from 0 to 100\r\n");
+
+for (int i = 0; i <= 100; i++)
 {
-    Console.WriteLine("Ваша страна - " + страна);
+    if (i != 0 && i % 2 == 0)
+    {
+        Console.WriteLine(i);
+    }
 }
-//test
-//Test2
+
