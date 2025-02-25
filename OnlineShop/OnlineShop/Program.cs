@@ -1,6 +1,5 @@
 ﻿using OnlineShop;
 
-var user1 = new userAccount();
-
-var userData = user1.registration();
-Console.WriteLine(userData);
+User test = new User("","");
+test.Registration();
+test.Display();

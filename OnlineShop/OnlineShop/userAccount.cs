@@ -1,27 +1,42 @@
 ﻿
 namespace OnlineShop;
 
-public class userAccount
+public class User
 {
-    public string username { get; set; }
-    public string password { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
 
-    public string registration()
+    public User(string username, string password)
     {
-        Console.WriteLine("For registration press - 1 \r\nFor authorization press - 2");
-        int uInput;
-        int.TryParse(Console.ReadLine(), out uInput);
-        if (uInput == 1)
+        Username = username;
+        Password = password;
+    }
+    public List<User> Users = new List<User>();
+
+    public void Registration()
+    {
+        Console.WriteLine("1.register\r\n2.login");
+        int.TryParse(Console.ReadLine(), out int answer);
+        if (answer == 1)
         {
-            Console.WriteLine("Registration of new User. Enter username");
-            username = Console.ReadLine();
-            Console.WriteLine("Registration of new User. Enter password");
-            password = Console.ReadLine();
+            Console.WriteLine("Введите логин");
+            string username = Console.ReadLine();
+            Console.WriteLine("Введите пароль");
+            string password = Console.ReadLine();
+
+            Users.Add(new User(username, password));
         }
-        else if (uInput == 2)
+        else if (answer == 2)
         {
-            Console.WriteLine("Enter username and password.");
+            Console.WriteLine("Введите логин и пароль");
         }
-        return username + password;
+    }
+    public void Display()
+    {
+        Console.WriteLine("Список зарегистрированных пользователей:");
+        foreach (var user in Users)
+        {
+            Console.WriteLine($"Логин: {user.Username}, Пароль: {user.Password}");
+        }
     }
 }
