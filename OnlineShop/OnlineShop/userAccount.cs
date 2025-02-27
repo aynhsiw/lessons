@@ -11,8 +11,10 @@ public class User
         Username = username;
         Password = password;
     }
-    public List<User> Users = new List<User>();
-
+}
+public class UserAccount
+{   
+        public List<User> Users = new List<User>();
     public void Registration()
     {
         Console.WriteLine("1.register\r\n2.login");

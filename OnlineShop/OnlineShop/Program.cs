@@ -1,5 +1,5 @@
 ﻿using OnlineShop;
 
-User test = new User("","");
+UserAccount test = new UserAccount();
 test.Registration();
 test.Display();
