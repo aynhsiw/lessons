@@ -1,4 +1,6 @@
 ﻿
+using System.ComponentModel.Design;
+
 namespace OnlineShop;
 
 public class User
@@ -26,12 +28,28 @@ public class UserAccount
             Console.WriteLine("Введите пароль");
             string password = Console.ReadLine();
 
-            Users.Add(new User(username, password));
+            bool userExists = false;
+            foreach (var user in Users)
+            {
+                if (user.Username == username)
+                {
+                    userExists = true;
+                    break;
+                }
+            }
+            if (userExists)
+            {
+                Console.WriteLine($"Пользователь с логином {username} уже существует.");
+            }
+            else
+            {
+                Users.Add(new User(username, password));
+                Console.WriteLine("Успешная регистрация");
+            }
         }
         else if (answer == 2)
-        {
             Console.WriteLine("Введите логин и пароль");
-        }
+            Console.ReadLine();
     }
     public void Display()
     {
