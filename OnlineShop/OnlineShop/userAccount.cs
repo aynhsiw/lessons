@@ -87,7 +87,7 @@ public class UserAccount
         switch (menu)
         {
             case "5":
-                Console.WriteLine("Введите текущее имя пользователя");
+                Console.WriteLine("Введите текущее имя пользователя"); //repush
                 string currentUsername = Console.ReadLine();
                 Console.WriteLine("Введите новое имя пользователя");
                 string newUsername = Console.ReadLine();
