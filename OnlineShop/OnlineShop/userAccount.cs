@@ -1,10 +1,8 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace OnlineShop;
+﻿namespace OnlineShop;
 
 public class UserAccount
 {
-    public List<User> Users = new List<User>();
+    public List<User> UsersList = new List<User>();
 
     public void ShowStartMenu()
     {
@@ -28,7 +26,7 @@ public class UserAccount
         string password = Console.ReadLine();
 
         bool userExists = false;
-        foreach (var user in Users)
+        foreach (var user in UsersList)
         {
             if (user.Username == username)
             {
@@ -43,7 +41,7 @@ public class UserAccount
         }
         else
         {
-            Users.Add(new User(username, password));
+            UsersList.Add(new User(username, password));
             Console.WriteLine("Успешная регистрация");
         }
 
@@ -58,7 +56,7 @@ public class UserAccount
         string password = Console.ReadLine();
 
         bool userExists = false;
-        foreach (var user in Users)
+        foreach (var user in UsersList)
         {
             if (user.Username == username && user.Password == password)
             {
@@ -69,7 +67,8 @@ public class UserAccount
 
         if (userExists)
         {
-            MainMenu(username);
+            UserMenu.MainMenu(username, password, UsersList);
+            ShowStartMenu();
         }
         else
         {
@@ -78,57 +77,54 @@ public class UserAccount
         }
     }
 
-    public void MainMenu(string username)
-    {
-        Console.WriteLine($"\r\nДобро пожаловать {username}");
-        Console.WriteLine("\r\n1.Товары\r\n2.Купоны\r\n3.История покупок\r\n4.Купить товар\r\n5.Изменить данные пользователя\r\n6.Изменить пароль\r\n7.Выйти");
-        string menu = Console.ReadLine();
+    //public void MainMenu(string username, string password)
+    //{
 
-        switch (menu)
-        {
-            case "5":
-                Console.WriteLine("Введите текущее имя пользователя"); //repush
-                string currentUsername = Console.ReadLine();
-                Console.WriteLine("Введите новое имя пользователя");
-                string newUsername = Console.ReadLine();
-                for (int i = 0; i < Users.Count; i++)
-                {
-                    if (Users[i].Username == currentUsername)
-                    {
-                        Users[i].Username = newUsername;
-                        break;
-                    }
-                }
-                ShowStartMenu();
-                break;
+    //    string menu = Console.ReadLine();
 
-            case "6":
-                Console.WriteLine("Введите текущий пароль");
-                string currentPassword = Console.ReadLine();
-                Console.WriteLine("Введите новый пароль");
-                string newPassword = Console.ReadLine();
-                for (int i = 0; i < Users.Count; i++)
-                {
-                    if (Users[i].Password == currentPassword)
-                    {
-                        Users[i].Password = newPassword;
-                        break;
-                    }
-                }
-                ShowStartMenu();
-                break;
+    //    switch (menu)
+    //    {
+    //        case "5":
+    //            Console.WriteLine("Введите новое имя пользователя");
+    //            string newUsername = Console.ReadLine();
+    //            for (int i = 0; i < UsersList.Count; i++)
+    //            {
+    //                if (UsersList[i].Username == username)
+    //                {
+    //                    UsersList[i].Username = newUsername;
+    //                    break;
+    //                }
+    //            }
+    //            ShowStartMenu();
+    //            break;
 
-            case "7":
-                ShowStartMenu();
-                break;
-        }
+    //        case "6":
+    //            Console.WriteLine("Введите текущий пароль");
+    //            string currentPassword = Console.ReadLine();
+    //            Console.WriteLine("Введите новый пароль");
+    //            string newPassword = Console.ReadLine();
+    //            for (int i = 0; i < UsersList.Count; i++)
+    //            {
+    //                if (UsersList[i].Password == password)
+    //                {
+    //                    UsersList[i].Password = newPassword;
+    //                    break;
+    //                }
+    //            }
+    //            ShowStartMenu();
+    //            break;
 
-    }
+    //        case "7":
+    //            ShowStartMenu();
+    //            break;
+    //    }
+
+    //}
 
     public void Display()
     {
         Console.WriteLine("Список зарегистрированных пользователей:");
-        foreach (var user in Users)
+        foreach (var user in UsersList)
         {
             Console.WriteLine($"Логин: {user.Username}, Пароль: {user.Password}");
         }
