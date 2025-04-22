@@ -1,3 +1,8 @@
-﻿using OnlineShop;
+﻿using OnlineShop.Menu;
+using OnlineShop.Services;
+
 var userService = new UserService();
-Shop.ShowStartMenu(userService);
+var productService = new ProductService();
+var couponService = new CouponService();
+
+StartMenu.ShowStartMenu(userService, productService, couponService);
